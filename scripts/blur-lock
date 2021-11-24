@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+PICTURE=/tmp/i3lock.png
+SCREENSHOT="scrot $PICTURE"
+
+BLUR="0x16"
+
+$SCREENSHOT
+convert $PICTURE -blur $BLUR $PICTURE
+convert -composite $PICTURE /home/nir/OneDrive/linux/I3Assets/lockscreen/rickmorty.png -gravity south -geometry -20x1200 $PICTURE
+i3lock -i $PICTURE
+rm $PICTURE
