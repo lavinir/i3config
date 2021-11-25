@@ -5,8 +5,35 @@ SCREENSHOT="scrot $PICTURE"
 
 BLUR="0x16"
 
+BLANK='#00000000'
+CLEAR='#ffffff22'
+DEFAULT='#340761cc'
+TEXT='#340761ee'
+WRONG='#880000bb'
+VERIFYING='#340761bb'
+
 $SCREENSHOT
 convert $PICTURE -blur $BLUR $PICTURE
 convert -composite $PICTURE /home/nir/OneDrive/linux/I3Assets/lockscreen/rickmorty.png -gravity south -geometry -20x1200 $PICTURE
-i3lock -i $PICTURE
+
+i3lock -i $PICTURE -e -f  \
+--insidever-color=$CLEAR     \
+--ringver-color=$VERIFYING   \
+\
+--insidewrong-color=$CLEAR   \
+--ringwrong-color=$VERIFYING     \
+\
+--inside-color=$BLANK        \
+--ring-color=$DEFAULT        \
+--line-color=$BLANK          \
+--separator-color=$DEFAULT   \
+\
+--verif-color=$TEXT          \
+--wrong-color=$TEXT          \
+--time-color=$TEXT           \
+--date-color=$TEXT           \
+--layout-color=$TEXT         \
+--keyhl-color=$WRONG         \
+--bshl-color=$WRONG          \
+
 rm $PICTURE
