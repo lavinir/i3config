@@ -44,12 +44,13 @@ else:
             if p>0:
                 percentleft_batteries.append(p)
             commasplitstatus_batteries.append(commasplitstatus)
-    state = state_batteries[0]
-    commasplitstatus = commasplitstatus_batteries[0]
-    if percentleft_batteries:
-        percentleft = int(sum(percentleft_batteries)/len(percentleft_batteries))
-    else:
-        percentleft = 0
+    state = state_batteries[-1]
+    commasplitstatus = commasplitstatus_batteries[-1]
+    percentleft = percentleft_batteries[-1]
+    # if percentleft_batteries:
+    #     percentleft = int(sum(percentleft_batteries)/len(percentleft_batteries))
+    # else:
+    #     percentleft = 0
 
     # stands for charging
     color = config.get("color_charging", "yellow")
