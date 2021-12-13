@@ -11,8 +11,8 @@ TEXT='#340761ee'
 WRONG='#880000bb'
 VERIFYING='#340761bb'
 
-flameshot screen -n 1 -r > $PICTURE
-$SCREENSHOT
+flameshot screen -n 0 -r > $PICTURE
+#$SCREENSHOT
 convert $PICTURE -blur $BLUR $PICTURE
 convert -composite $PICTURE /home/nir/OneDrive/linux/I3Assets/lockscreen/rickmorty.png -gravity south -geometry -20x1200 $PICTURE
 
